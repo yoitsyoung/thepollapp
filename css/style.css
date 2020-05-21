@@ -1,0 +1,99 @@
+/* #ffdf9e	(255,223,158)
+#ffc273	(255,194,115)
+#e56969	(229,105,105)
+#c1558b	(193,85,139)
+#8a49a1	(138,73,161) */
+
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr 1fr repeat(3, 2fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100vw;
+    animation: colorchange 100s; /* animation-name followed by duration in seconds*/
+      /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 100s; /* Chrome and Safari */
+    animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes colorchange
+{
+  0%   {background: #ffdf9e;}
+  25%  {background: #ffc273;}
+  50%  {background: #e56969;}
+  75%  {background: #c1558b;}
+  100% {background: #8a49a1;}
+}
+
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+{
+  0%   {background: #ffdf9e;}
+  25%  {background: #ffc273;}
+  50%  {background: #e56969;}
+  75%  {background: #c1558b;}
+  100% {background: #8a49a1;}
+}
+
+header {
+    grid-area: 1 / 1 / 2 / 5;
+    font-size: 20px;
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: black;
+    border-radius: 10rem;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all .2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.question {
+    grid-area: 2 / 2 / 3 / 4;
+
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
+    width: 100%
+}
+
+.select {
+    width: 100%;
+    text-align: center;
+}
+
+.picture {
+    object-fit: cover;
+}
+
+.option1 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+.option2 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+.option3 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+.option4 {
+    grid-area: 4 / 3 / 5 / 4;
+}
