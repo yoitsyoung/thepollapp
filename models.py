@@ -1,4 +1,4 @@
-from flask_sqlalchemy import flask_sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class Question(db.Model):
@@ -6,7 +6,7 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     date = db.Column(db.String, nullable=True)
-    questions = db.relationship("options", backref = 'options', lazy=True)
+    questions = db.relationship("Option", backref = 'options', lazy=True)
 
     def add_option(self, title, img):
         o = Option(title=title, img=img, question=question.id)
@@ -25,7 +25,7 @@ class Option(db.Model):
     title = db.Column(db.String, nullable=False)
     img = db.Column(db.LargeBinary, nullable=True)
     score = db.Column(db.Integer, default=0)
-    question = db.Column(db.String, db.ForeignKey("questions.id"), nullable=False)
+    question = db.Column(db.Integer, db.ForeignKey("questions.id"), nullable=False)
     
     def __str__(self):
         return f'{self.title}'
