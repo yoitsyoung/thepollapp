@@ -6,7 +6,7 @@ class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     date = db.Column(db.String, nullable=True)
-    questions = db.relationship("Option", backref = 'options', lazy=True)
+    options = db.relationship("Option", backref = 'question', lazy=True)
 
     def add_option(self, title, img):
         o = Option(title=title, img=img, question=question.id)
